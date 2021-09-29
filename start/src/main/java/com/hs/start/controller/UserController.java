@@ -15,9 +15,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public Response<User> register(@RequestBody User user){
+    public Response register(@RequestBody User user){
         log.info("ready to register new user.");
-        Response<User> response = userService.register(user);
+        Response<Integer> response = userService.register(user);
         log.info("register success."+user.toString());
         return response;
     }

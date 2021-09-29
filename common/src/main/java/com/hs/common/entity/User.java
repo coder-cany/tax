@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User {
-    private int account;
+    private int id;
     private String password;
     private String name;
     private Integer role;
