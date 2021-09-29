@@ -16,7 +16,13 @@ public class User {
     private String password;
     private String name;
     private Integer role;
+    private String idCard;
+    private Integer tel;
+    private String email;
     private Integer sex;
-    private LocalDateTime createTime;
+    private LocalDateTime birthday;
     private String img;
+    private LocalDateTime lastLoginTime;
+    private LocalDateTime createTime;
+
 }
