@@ -13,16 +13,16 @@ public class UserService {
     UserDao userDao;
 
     public Response register(User user) throws Exception {
-        int i = userDao.register(user);
+        int i = userDao.insertUser(user);
         if (i == 0){
             throw new Exception("insert user fail. user id = "+user.getId());
         }
         return Response.success();
     }
     public Response<Object> login(User user){
-        return Response.success();
+        return Response.success(userDao.getUserById(user.getId()));
     }
     public Response<User> getInfo(Integer id){
-        return Response.success();
+        return Response.success(userDao.getUserInfo(id));
     }
 }
