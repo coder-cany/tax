@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="">
+<mapper namespace="com.hs.user.dao.UserDao">
+    <insert id="insertUser" parameterType="com.hs.common.entity.User">
+        insert into user values (id,password,name,role,idCard,tel,email,sex,birthday,img,lastLoginTime,createTime);
+    </insert>
 
+    <select id="getUserById" resultType="com.hs.common.entity.User">
+        select id,name,role,idCard,tel,email,sex,birthday,img,lastLoginTime,createTime from user where id=${id};
+    </select>
+
+    <select id="getUserInfo" resultType="com.hs.common.entity.User">
+
+    </select>
 </mapper>

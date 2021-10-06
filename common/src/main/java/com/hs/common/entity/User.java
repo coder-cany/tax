@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 public class User {
     private int id;
-    private String password;
+    transient private String password;
     private String name;
     private Integer role;
     private String idCard;
