@@ -5,19 +5,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Business {
-    private Integer id;
-    private String name;
-    private String summary;
-    private BigDecimal price;
-    private Integer postPersonId;
-
-    private LocalDateTime createTime;
+public class WorkStream {
+    private Integer prePerson;
+    private Integer aftPerson;
+    private Order order;
+    private LocalDateTime time;
 }

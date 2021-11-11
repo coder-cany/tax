@@ -1,14 +1,19 @@
 package com.hs.order.redis;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Can
+ */
 @Component
 @ConfigurationProperties(prefix = "redis")
 public class RedisConfig {
 
     private String host;
     private int port;
+    @Value("${redis.timeout:2000}")
     private int timeout;
     private int poolMaxTotal;
     private int poolMaxWait;

@@ -5,19 +5,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Business {
+public class Company {
     private Integer id;
     private String name;
-    private String summary;
-    private BigDecimal price;
-    private Integer postPersonId;
-
+    private String address;
+    private Integer type;
     private LocalDateTime createTime;
 }

@@ -4,7 +4,7 @@ import com.hs.order.dao.UserDao;
 import com.hs.common.entity.User;
 import com.hs.order.exception.SimpleException;
 import com.hs.order.redis.RedisService;
-import com.hs.order.utils.CheckToken;
+import com.hs.order.utils.TokenUtil;
 import com.hs.order.utils.CookieUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -51,8 +51,9 @@ public class UserService {
                 String token = UUID.randomUUID().toString();
                 //如果请求中已有token则尝试删除缓存中对应的token
                 Cookie oldCookie = CookieUtils.getCookieByName(request, "token");
-                if (oldCookie != null)
+                if (oldCookie != null) {
                     redisService.delete(oldCookie.getValue());
+                }
                 //添加新token到缓存中
                 user.setPassword(null);
                 redisService.set(token, user);
@@ -66,10 +67,12 @@ public class UserService {
                 map.put("user", user);
 
                 return map;
-            } else
+            } else {
                 throw new SimpleException("密码不正确");
-        } else
+            }
+        } else {
             throw new SimpleException("账号不存在");
+        }
     }
 
     /**
@@ -91,7 +94,7 @@ public class UserService {
     public void registerService(User user) {
         LocalDateTime creatDate = LocalDateTime.now();
 
-        if (userDao.findUserByAccount(user.getAccount()) != null) {
+        if (userDao.findUserByAccount(user.getId()) != null) {
             throw new SimpleException("账户已存在");
         } else {
             user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
@@ -117,7 +120,7 @@ public class UserService {
     }
 
     public void updateInfo(String token, User user, MultipartFile file) {
-        if (CheckToken.check(redisService, token, user.getAccount())) {
+        if (TokenUtil.check(redisService, token, user.getId())) {
             if (file != null) {
                 try {
                     String fileName = file.getOriginalFilename();

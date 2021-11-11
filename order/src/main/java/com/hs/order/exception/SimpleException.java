@@ -5,6 +5,7 @@ public class SimpleException extends RuntimeException {
         super(msg);
     }
 
+    @Override
     public String getMessage() {
         return super.getMessage();
     }

@@ -22,6 +22,6 @@ public class BusinessService {
     public void createBusiness(String token, String nextPerson, String orderId, String service) {
 
         User preUser = redisService.get(token, User.class);
-        taskDao.createBusiness(orderId, service, preUser.getAccount(), nextPerson, LocalDateTime.now());
+        taskDao.createBusiness(orderId, service, preUser.getId(), nextPerson, LocalDateTime.now());
     }
 }

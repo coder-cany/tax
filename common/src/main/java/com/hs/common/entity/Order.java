@@ -12,8 +12,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class Order {
+    private Integer id;
+    private String business;
     private String company;
-    private String service;
+    private User user;
     private String material;
     private String extra;
     private Integer money;

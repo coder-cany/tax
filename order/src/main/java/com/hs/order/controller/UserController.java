@@ -90,14 +90,12 @@ public class UserController {
                                @RequestParam(value = "img", required = false) MultipartFile file) {
         try {
             User user = new User();
-            user.setAccount(account);
+            user.setId(account);
             user.setName(name);
             user.setPassword(password);
             user.setSex(sex);
             userService.updateInfo(token, user, file);
             return Response.success();
-        } catch (SimpleException e) {
-            return Response.fail(e.getMessage());
         } catch (Exception e) {
             return Response.fail(e.getMessage());
         }

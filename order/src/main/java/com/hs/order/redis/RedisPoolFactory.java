@@ -12,12 +12,11 @@ public class RedisPoolFactory {
     RedisConfig redisConfig;
 
     @Bean
-    public JedisPool jedisPoolFactory() {
+    public JedisPool jedisPool() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
         jedisPoolConfig.setMaxIdle(redisConfig.getPoolMaxIdle());
         jedisPoolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait());
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig, redisConfig.getHost(), redisConfig.getPort());
-        return jedisPool;
+        return new JedisPool(jedisPoolConfig, redisConfig.getHost(), redisConfig.getPort());
     }
 }

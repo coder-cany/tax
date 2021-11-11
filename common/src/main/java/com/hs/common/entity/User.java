@@ -17,6 +17,7 @@ public class User {
     private String name;
     private Integer role;
     private String idCard;
+    private Company company;
     private Integer tel;
     private String email;
     private Integer sex;
