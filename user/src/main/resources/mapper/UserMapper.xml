@@ -11,6 +11,14 @@
     </select>
 
     <select id="getUserInfo" resultType="com.hs.common.entity.User">
+        select * from user where id = #{id};
+    </select>
+
+    <update id="updateUser">
+<!--        update user-->
+    </update>
+
+    <select id="getUserByIdAndPwd" resultType="com.hs.common.entity.User">
 
     </select>
 </mapper>
