@@ -19,10 +19,15 @@ public class UserService {
         }
         return Response.success();
     }
-    public Response<Object> login(User user){
-        return Response.success(userDao.getUserById(user.getId()));
+    public Response<Object> login(Integer id, String pwd){
+        User user = userDao.getUserByIdAndPwd(id,pwd);
+        return Response.success();
     }
     public Response<User> getInfo(Integer id){
         return Response.success(userDao.getUserInfo(id));
+    }
+
+    public int updateInfo(User user) {
+        return userDao.updateUser(user);
     }
 }

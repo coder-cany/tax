@@ -11,4 +11,8 @@ public interface UserDao {
     User getUserById(@Param("id") Integer id);
 
     User getUserInfo(@Param("id") Integer id);
+
+    int updateUser(User user);
+
+    User getUserByIdAndPwd(Integer id, String pwd);
 }
