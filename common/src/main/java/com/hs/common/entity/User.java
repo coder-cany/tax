@@ -23,6 +23,6 @@ public class User {
     private Integer sex;
     private LocalDateTime birthday;
     private String img;
-    private LocalDateTime lastLoginTime;
-    private LocalDateTime createTime;
+    transient private LocalDateTime lastLoginTime;
+    transient private LocalDateTime createTime;
 }

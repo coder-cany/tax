@@ -7,6 +7,6 @@ public class UserVO extends User {
         super();
     }
     public UserVO(Integer id, String name){
-        User user = new User();
+
     }
 }
