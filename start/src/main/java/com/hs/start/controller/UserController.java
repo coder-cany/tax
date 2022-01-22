@@ -17,9 +17,9 @@ public class UserController {
     @PostMapping("/register")
     public Response register(@RequestBody User user){
         log.info("ready to register new user.");
-        Response<Integer> response = userService.register(user);
+//        Response<Integer> response = userService.register(user);
         log.info("register success."+user.toString());
-        return response;
+        return Response.success();
     }
 
     @GetMapping("/login")
