@@ -1,15 +1,17 @@
 package com.hs.common.vo;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @AllArgsConstructor
+@Data
 public class Response<T> {
     private Integer status;
     private String msg;
     private T data;
 
     public static Response fail() {
-        return new Response(400, "数据校验出错", null);
+        return new Response(500, null, null);
     }
 
     public static Response fail(String msg) {

@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.hs</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1</version>
+            <version>${project.version}</version>
         </dependency>
 
         <!-- server discovery-->

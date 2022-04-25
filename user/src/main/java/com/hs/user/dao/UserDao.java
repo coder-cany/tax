@@ -1,6 +1,6 @@
 package com.hs.user.dao;
 
-import com.hs.common.entity.User;
+import com.hs.user.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 package com.hs.user.controller;
 
-import com.hs.common.entity.User;
 import com.hs.common.vo.Response;
+import com.hs.user.po.User;
 import com.hs.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +15,13 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/register")
-    public Response register(User user){
+    public Response register(@RequestBody User user){
         try {
+            log.info(user.toString());
             return userService.register(user);
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getStackTrace().toString());
-            return Response.fail();
+            return Response.fail("注册失败");
         }
     }
 
@@ -38,6 +39,6 @@ public class UserController {
     @PutMapping("/user/settings")
     public Response updateInfo(@RequestBody User user){
         userService.updateInfo(user);
-        return Response.success();
+        return  Response.success();
     }
 }
