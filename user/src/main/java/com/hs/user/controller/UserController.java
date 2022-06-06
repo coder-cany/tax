@@ -17,7 +17,7 @@ public class UserController {
     @PostMapping("/register")
     public Response register(@RequestBody User user){
         try {
-            log.info(user.toString());
+            log.debug(user.toString());
             return userService.register(user);
         } catch (Exception e) {
             log.error(e.getStackTrace().toString());
@@ -28,6 +28,7 @@ public class UserController {
     @PostMapping("/login")
     public Response<Object> login(@RequestParam("id") Integer id,
                                   @RequestParam("pwd") String pwd){
+        log.debug("user login, id:  "+id);
         return userService.login(id, pwd);
     }
 
