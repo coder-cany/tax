@@ -1,0 +1,36 @@
+server:
+  port: 8080
+#用了linux的话，可以设置自己的ip到环境变量MY_REMOTE_IP,然后重启Idea
+IP: ${MY_REMOTE_IP:localhost}
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+spring:
+  application:
+    name: user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${IP}:8848
+#data config
+  datasource:
+    url: jdbc:mysql://${IP}:3306/tax?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    type: com.mysql.cj.jdbc.MysqlDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: ${IP}
+
+logging:
+  file:
+    name: ./user.log
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

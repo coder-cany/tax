@@ -14,17 +14,15 @@ public class UserService {
     @Resource
     UserDao userDao;
 
-    public Response register(User user) throws Exception {
+    public void register(User user) {
         log.info("start to insert user:" + user.toString());
-        int i = userDao.insertUser(user);
-        if (i == 0){
-            throw new Exception("insert user fail. user id = " + user.getId());
-        }
-        log.info("insert success."+ i);
-        return Response.success();
+        userDao.insertUser(user);
+        log.info("insert success.");
     }
+
     public Response<Object> login(Integer id, String pwd){
         User user = userDao.getUserByIdAndPwd(id,pwd);
+
         return Response.success();
     }
     public Response<User> getInfo(Integer id){

@@ -4,13 +4,13 @@
 <mapper namespace="com.hs.user.dao.UserDao">
     <insert id="insertUser" parameterType="com.hs.user.po.User">
         insert into user (
-        id,password,name,role,idCard,tel,email,sex,birthday,img,last_login_time,create_time
+        id,password,name,role,id_card,tel,email,sex,birthday,img,last_login_time,create_time
         ) values (#{user.id},#{user.password},#{user.name},#{user.role},#{user.idCard},#{user.tel},#{user.email},#{user.sex}
         ,#{user.birthday},#{user.img},#{user.lastLoginTime},#{user.createTime});
     </insert>
 
     <select id="getUserById" resultType="com.hs.user.po.User">
-        select id,name,role,idCard,tel,email,sex,birthday,img,lastLoginTime,createTime from user where id=#{id};
+        select id,name,role,id_card,tel,email,sex,birthday,img,lastLoginTime,createTime from user where id=#{id};
     </select>
 
     <select id="getUserInfo" resultType="com.hs.user.po.User">
@@ -18,7 +18,7 @@
     </select>
 
     <update id="updateUser">
-<!--        update user-->
+--         update user set
     </update>
 
     <select id="getUserByIdAndPwd" resultType="com.hs.user.po.User">

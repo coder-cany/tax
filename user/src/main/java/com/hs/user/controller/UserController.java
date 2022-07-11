@@ -18,9 +18,10 @@ public class UserController {
     public Response register(@RequestBody User user){
         try {
             log.debug(user.toString());
-            return userService.register(user);
+            userService.register(user);
+            return Response.success();
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage(), e);
             return Response.fail("注册失败");
         }
     }

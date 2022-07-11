@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -21,8 +22,11 @@ public class User {
     private Integer tel;
     private String email;
     private Integer sex;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime birthday;
     private String img;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     transient private LocalDateTime lastLoginTime;
+
     transient private LocalDateTime createTime;
 }
