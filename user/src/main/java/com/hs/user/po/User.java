@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User {
-    private int id;
+    private Integer id;
     transient private String password;
     private String name;
     private Integer role;
     private String idCard;
     private Company company;
-    private Integer tel;
+    private Long tel;
     private String email;
     private Integer sex;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
